@@ -1,0 +1,264 @@
+//Johann Alejandro Hernandez Solis
+//Proyecto Final: Restaurante "Super Torta"
+#include <stdio.h>
+//Prototipos de funciones
+int presentacion();
+float pan();
+float carne();
+float verdura();
+float queso();
+float extra();
+
+//Funcion principal
+int main ()
+{
+    //Cada float de opcion fue usado para introducir los valores del total de los prototipos.
+    int opcion;
+    float opcion2, opcion3, opcion4, opcion5, opcion6, total;
+    char finalizar = 0;
+    while (finalizar != 't')
+    {
+        opcion = presentacion();
+        switch(opcion)
+        {
+            case 1:
+            opcion2 = carne();
+            total = opcion2;
+            printf("Total = $%.2f\n",total);
+            opcion3 = pan();
+            total = total+opcion3;
+            printf("Total = $%.2f\n",total);
+            opcion4 = verdura();
+            total = total+opcion4;
+            printf("Total = $%.2f\n",total);
+            opcion5 = queso();
+            total = total+opcion5;
+            printf("Total = $%.2f\n",total);
+            opcion6 = extra();
+            total = total+opcion6;
+            break;
+            case 2:
+            opcion3 = pan();
+            total = 28+opcion3;
+            printf("Total = $%.2f\n",total);
+            opcion5 = queso();
+            total = 28+opcion5;
+            printf("Total = $%.2f\n",total);
+            opcion6 = extra();
+            total = total+opcion6;
+            break;
+            case 3:
+            opcion3 = pan();
+            total = 40+ opcion3;
+            printf("Total= $%.2f\n",total);
+            opcion4 = verdura();
+            total = total+opcion4;
+            printf("Total= $%.2f\n",total);
+            opcion5 = queso();
+            total = total+opcion5;
+            printf("Total= $%.2f\n",total);
+            opcion6 = extra();
+            total = total+opcion6;
+            break;
+            default:
+            printf("\nLo sentimos pero no tenemos ese producto.\n");
+            total = 0;
+            break;
+        }
+    printf("\nPresione la tecla t para mostrar el total de la orden o presione otra tecla para volver a empezar: ");
+    scanf("%s",&finalizar);
+    system("cls");
+    }
+    printf("Su total es :$%.2f",total);
+    printf("\nGracias por ordenar en Supertorta que tenga un buen dia y un buen provecho");
+    return 0;
+
+}
+int presentacion()
+{
+    int retval;
+    printf("Bienvenido sea a Supertorta, puedo tomar su pedido\n");
+    printf("Menu:\n");
+    printf("1. Torta de carne: $25.00\n");
+    printf("2. Torta Vegetariana: $28.00\n");
+    printf("3. Torta de Carnes Mixta: $40.00\n");
+    scanf("%d",&retval);
+    return retval;
+
+}
+float pan()
+{
+    float total;
+    int  opcion;
+    char finalizar;
+    total = 0;
+    printf("\nSelecciona el tipo de pan");
+    printf("\n1.Normal\n2.Ajo $5.00\n3.Integral $2.00\n4.Oregano y parmesano $7.00\n");
+    while (finalizar!= 'c')
+{
+    scanf("%d",&opcion);
+    switch (opcion)
+    {
+        case 1:
+        printf("\nHa seleccionado pan normal.\n");
+        total= 0;
+        break;
+        case 2:
+        printf("\nHa seleccionado pan de Ajo.\n");
+        total= 5;
+        break;
+        case 3:
+        printf("\nHa seleccionado pan Integral.\n");
+        total= 2;
+        break;
+        case 4:
+        printf("\nHa seleccionado pan Oregano y Parmesano.\n");
+        total= 7;
+        break;
+        default:
+        printf("\nLo sentimos pero no tenemos ese producto.\n");
+        total=0;
+        break;
+    }
+    printf("\nPresione 'c' para continuar o cualquier otra tecla para cambiar tu seleccion: ");
+    scanf("%s",&finalizar);
+}
+    return total;
+}
+
+float carne ()
+{
+    float total;
+    char finalizar;
+    int opcion;
+    total = 0;
+    printf("Selecciona el tipo de carne");
+    printf("\n1.Pollo $25.00\n2.Res $27.00\n3.Cerdo $28.00\n");
+    while (finalizar != 'c')
+    {
+    scanf("%d",&opcion);
+    switch (opcion)
+    {
+        case 1:
+        printf("\nHa seleccionado pollo.\n");
+        total= 25;
+        break;
+        case 2:
+        printf("\nHa seleccionado res.\n");
+        total= 27;
+        break;
+        case 3:
+        printf("\nHa seleccionado cerdo.\n");
+        total= 28;
+        break;
+        default:
+        printf("\nLo sentimos pero no tenemos ese producto.\n");
+        total =0;
+        break;
+    }
+    printf("\nPresione 'c' para continuar o cualquier otra tecla para cambiar tu seleccion: ");
+    scanf("%s",&finalizar);
+}
+    return total;
+}
+float verdura()
+{
+    float total = 0;
+    char agregar, finalizar;
+    printf("\nDesea agregar verdura? precio: $5.00 presione 's' para agregar o 'n' para continuar\n");
+    scanf("%s",&agregar);
+    if (agregar == 's')
+    {
+        printf("\nEn un momento agregamos la verdura...\n");
+        total = 5;
+    }
+    else if(agregar == 'n')
+    {
+        total = 0;
+    }
+    return total;
+}
+float queso()
+{
+    float total = 0;
+    int opcion;
+    char agregar, finalizar;
+    printf("\nDesea agregar queso? precio: $5.00 presione 's' para agregar o 'n' para continuar\n");
+    scanf("%s",&agregar);
+    if (agregar == 's')
+    {
+    printf("Selecciona el tipo de queso");
+    printf("\n1.Asadero\n2.Cheddar\n3.Blanco\n");
+    scanf("%d",&opcion);
+        switch (opcion)
+        {
+        case 1:
+        printf("\nHa seleccionado queso Asadero.\n");
+        total= 5;
+        break;
+        case 2:
+        printf("\nHa seleccionado queso Cheddar.\n");
+        total= 5;
+        break;
+        case 3:
+        printf("\nHa seleccionado queso Blanco.\n");
+        total= 5;
+        break;
+        default:
+        printf("\nLo sentimos pero no tenemos ese producto.");
+        total = 0;
+        break;
+        }
+    }
+    else if(agregar == 'n')
+    {
+        total = 0;
+    }
+    return total;
+}
+float extra()
+{
+    int total = 0;
+    int opcion;
+    char agregar, otro_ing =0;
+    printf("\nDesea agregar algun ingrediente extra? precio: $5.00 por extra presione 's' para agregar o 'n' para continuar: ");
+    scanf("%s",&agregar);
+    if (agregar == 's')
+    {
+        while(otro_ing != 'n')
+        {
+        printf("\n1.Tocino\n2.Verdura\n3.Queso\n4.Aderezo\n");
+        scanf("%d",&opcion);
+        switch (opcion)
+        {
+        case 1:
+        printf("\nHa seleccionado extra de tocino.\n");
+        total+=5;
+        break;
+        case 2:
+        printf("\nHa seleccionado extra de verdura.\n");
+        total+=5;
+        break;
+        case 3:
+        printf("\nHa seleccionado extra de queso.\n");
+        total+=5;
+        break;
+        case 4:
+        printf("\nHa seleccionado extra de aderezo.\n");
+        total+=5;
+        break;
+        default:
+        printf("\nLo sentimos pero no tenemos ese producto.");
+        total = 0;
+        break;
+        }
+        printf("\nPresione cualquier tecla para agregar otro ingrediente o 'n' para salir: ");
+        scanf("%s",&otro_ing);
+        }
+    }
+    else if(agregar == 'n')
+    {
+        total;
+    }
+    return total;
+}
